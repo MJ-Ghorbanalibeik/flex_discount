@@ -40,31 +40,32 @@ OrderItem.new(Product.new(1, 'Burger', 7.99), 3)
 
   2. Discount models
   Currenty 3 discount models are implemented:
-    2.1. FlatDiscount
-    Gives a flat percentage discount, if total value of order exceeds certain amount.
-    For example this will give 10% discount if original value of order is greater than 30.
+
+  2.1. FlatDiscount
+  Gives a flat percentage discount, if total value of order exceeds certain amount.
+  For example this will give 10% discount if original value of order is greater than 30.
 
 ```ruby
 FlatDiscount.new(10, 30)
 ```
 
-    2.2. StepDiscount
-    Gives step based discounts, based on percentage and threshold of each step.
-    For example this will give 10% discount if original value is greater than 30, and less than 50. If original value of order exceeds 50 then this will give 15% discount.
+  2.2. StepDiscount
+  Gives step based discounts, based on percentage and threshold of each step.
+  For example this will give 10% discount if original value is greater than 30, and less than 50. If original value of order exceeds 50 then this will give 15% discount.
 
 ```ruby
 StepDiscount.new(10, 30).add_step(15, 50)
 ```
 
-    2.3. ItemDiscount
-    This model is more complex. It has a trigger item, a target item, and multiplications of both. Consider product examples.
-    For example if you want to drop Burger price for each Burger to 5.99, if customer buys 3 or more Burgers, then use something like this:
+  2.3. ItemDiscount
+  This model is more complex. It has a trigger item, a target item, and multiplications of both. Consider product examples.
+  For example if you want to drop Burger price for each Burger to 5.99, if customer buys 3 or more Burgers, then use something like this:
 
 ```ruby
 ItemDiscount.new(1, 3, 100 * (7.99 - 5.99)/7.99)
 ```
 
-    Another example is when you want to drop price of 1 Fires 15% for each 2 Burgers that are in order:
+  Another example is when you want to drop price of 1 Fires 15% for each 2 Burgers that are in order:
 
 ```ruby
 ItemDiscount.new(1, 2, 15, 2, 1, 2, 1)
