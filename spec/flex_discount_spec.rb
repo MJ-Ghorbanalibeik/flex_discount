@@ -4,6 +4,6 @@ RSpec.describe FlexDiscount do
   end
 
   it 'has a Checkout class' do
-    expect{FlexDiscount::Checkout}.not_to raise_error(error=NameError)
+    expect{FlexDiscount::Checkout}.not_to raise_error
   end
 end

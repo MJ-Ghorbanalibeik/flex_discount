@@ -13,7 +13,7 @@ module Models
       @steps += [{step_discount_percentage: step_discount_percentage, step_order_value: step_order_value}]
     end
 
-    def calculate_discount(order)
+    def calculate_discount(items)
 
     end
   end

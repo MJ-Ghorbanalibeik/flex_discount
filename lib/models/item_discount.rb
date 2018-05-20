@@ -12,7 +12,7 @@ module Models
       @discount_percentage = discount_percentage
     end
 
-    def calculate_discount(order)
+    def calculate_discount(items)
 
     end
   end
