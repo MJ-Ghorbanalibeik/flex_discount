@@ -14,7 +14,7 @@ module Models
       @to_product_multiple_of = to_product_multiple_of || 1
     end
 
-    def calculate_discount(items)
+    def calculate_discount(items, previous_discount = 0)
       flat_order_value = 0
       from_product_count = 0
       from_product_price = 0
