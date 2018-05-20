@@ -22,7 +22,7 @@ module Models
     end
 
     def total
-      @items.inject(0) { |sum, order_item| order_item.product.price * order_item.count } - @discount_model.calculate_discount(@items)
+      (@items.inject(0) { |sum, order_item| order_item.product.price * order_item.count } - @discount_model.calculate_discount(@items)).round(2)
     end
   end
 end

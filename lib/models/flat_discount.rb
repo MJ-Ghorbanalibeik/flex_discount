@@ -12,7 +12,7 @@ module Models
     def calculate_discount(items)
       flat_order_value = 0
       items.each{ |item| flat_order_value += item.product.price * item.count }
-      return flat_order_value * @discount_percentage / 100 if flat_order_value >= @min_order_value
+      return (flat_order_value * @discount_percentage / 100).round(2) if flat_order_value >= @min_order_value
       return 0
     end
   end
