@@ -1,5 +1,6 @@
 require "flex_discount/version"
+require "models/checkout"
 
 module FlexDiscount
-  # Your code goes here...
+  include Models
 end
